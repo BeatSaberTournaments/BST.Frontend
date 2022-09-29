@@ -12,9 +12,26 @@
  Target Server Version : 140005
  File Encoding         : 65001
 
- Date: 29/09/2022 00:40:05
+ Date: 29/09/2022 21:40:21
 */
 
+
+-- ----------------------------
+-- Table structure for banned_mods
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."banned_mods";
+CREATE TABLE "public"."banned_mods" (
+  "id" int2 NOT NULL,
+  "modname" varchar(255) COLLATE "pg_catalog"."default"
+)
+;
+
+-- ----------------------------
+-- Records of banned_mods
+-- ----------------------------
+INSERT INTO "public"."banned_mods" VALUES (1, 'Acc Dot');
+INSERT INTO "public"."banned_mods" VALUES (2, 'NoteCutGuide');
+INSERT INTO "public"."banned_mods" VALUES (3, 'Intro/Outro-skip');
 
 -- ----------------------------
 -- Table structure for s_roles
@@ -77,7 +94,7 @@ CREATE TABLE "public"."tournaments" (
   "signupstatus" int2 DEFAULT 0,
   "twitchchannel" varchar(26) COLLATE "pg_catalog"."default" DEFAULT 'BeatSaberTournaments'::character varying,
   "public" bool DEFAULT false,
-  "image" varchar(300) COLLATE "pg_catalog"."default" DEFAULT 'https://danesaber.cc/assets/images/logo.png'::character varying
+  "image" varchar COLLATE "pg_catalog"."default"
 )
 ;
 COMMENT ON COLUMN "public"."tournaments"."id" IS 'Numerical identifier for database use';
@@ -101,12 +118,12 @@ COMMENT ON COLUMN "public"."tournaments"."signupstatus" IS 'Numerical value for 
 2: Invites only';
 COMMENT ON COLUMN "public"."tournaments"."twitchchannel" IS 'Name of the Twitch-channel';
 COMMENT ON COLUMN "public"."tournaments"."public" IS 'Boolean to decide if tournament show be shown or not';
-COMMENT ON COLUMN "public"."tournaments"."image" IS 'Image URL to the tournament-image';
+COMMENT ON COLUMN "public"."tournaments"."image" IS 'Image URL for image';
 
 -- ----------------------------
 -- Records of tournaments
 -- ----------------------------
-INSERT INTO "public"."tournaments" VALUES (1, 'BST Test Tournament', '{''users'': [{''scoresaberids'': [],''roles'': []}', '{''users'': [{''scoresaberids'': [],''status'': []}', 0, '2023-01-01 00:06:40', '2023-02-28 00:06:47', '{}', '{}', 0, 'BeatSaberTournaments', 't', 'https://danesaber.cc/assets/images/logo.png');
+INSERT INTO "public"."tournaments" VALUES (1, 'BST Test Tournament', '[{"id":1,"scoresaberid":"76561198086326146","role":1},{"id":1,"scoresaberid":"76561198086326147","role":2}]', '[{"id":1,"scoresaberid":"76561198086326146","status":5},{"id":1,"scoresaberid":"76561198086326147","status":6}]', 0, '2023-01-01 00:06:40', '2023-02-28 00:06:47', '[{"id":1,"round":1,"image":"http:\/\/image.com","songs":[{"bsr":1,"diff":1},{"bsr":2,"diff":2}]}]', '[{"matchid":101,"player1":"76561198086326146","player2":"76561198086326147","score":[0,0],"round":1,"map-pool":1,"state":"pending","winner":"0"},{"matchid":102,"player1":"76561198086326146","player2":"76561198086326147","score":[1,0],"round":1,"map-pool":1,"state":"ongoing","winner":"0"},{"matchid":103,"player1":"76561198086326146","player2":"76561198086326147","score":[1,0],"round":1,"map-pool":1,"state":"ended","winner":"76561198086326146"}]', 0, 'BeatSaberTournaments', 't', 'https://danesaber.cc/assets/images/logo.png');
 
 -- ----------------------------
 -- Table structure for users
@@ -137,6 +154,11 @@ COMMENT ON COLUMN "public"."users"."image" IS 'Users own image';
 -- ----------------------------
 INSERT INTO "public"."users" VALUES (1, 'Hawk', 10, '2022-09-28 21:34:25+02', 76561198086326146, 'thanighthawk', '592779895084679188', 'https://danesaber.cc/assets/images/logo.png');
 INSERT INTO "public"."users" VALUES (2, 'Hawk2', 10, '2022-09-28 21:34:25+02', 76561198086326147, 'thanighthawk2', '592779895084679188', 'https://danesaber.cc/assets/images/logo.png');
+
+-- ----------------------------
+-- Primary Key structure for table banned_mods
+-- ----------------------------
+ALTER TABLE "public"."banned_mods" ADD CONSTRAINT "banned_mods_pkey" PRIMARY KEY ("id");
 
 -- ----------------------------
 -- Primary Key structure for table s_roles
