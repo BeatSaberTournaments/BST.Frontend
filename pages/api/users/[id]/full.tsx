@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import pool from "../../../../lib/db/server.js";
+import information from "../../../../lib/db/server.js";
 
 export default async function getAllusers(req: NextApiRequest, res: NextApiResponse) {
 
@@ -10,7 +10,7 @@ export default async function getAllusers(req: NextApiRequest, res: NextApiRespo
 
     //Query specific user
     const { id } = req.query;
-    const result = await pool.query(`SELECT * FROM users WHERE scoresaberid = ${id}`);
+    const result = await information.query(`SELECT * FROM users WHERE scoresaberid = ${id}`);
 
     //Check if result is empty, else return user
     if (result.rows.length === 0) {

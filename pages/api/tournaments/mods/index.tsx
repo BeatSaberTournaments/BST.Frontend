@@ -7,14 +7,12 @@ export default async function getAllusers(req: NextApiRequest, res: NextApiRespo
         res.status(500).json({ message: 'Method not allowed' });
         return;
     }
-
-    //Query specific user
-    const { id } = req.query;
-    const result = await information.query(`SELECT username,scoresaberid,twitch FROM users WHERE scoresaberid = ${id}`);
-
-    //Check if result is empty, else return user
+    const result = await information.query('SELECT modname FROM banned_mods ORDER by ID ASC');
     if (result.rows.length === 0) {
-        res.status(404).json({ message: 'User not found' });
+        res.status(404).json({ message: 'No banned mods found' });
         return;
-    } else { res.status(200).json({ userinfo: result.rows }); }
+    } else {
+        const modnames = result.rows.map((mod) => mod.modname);
+        res.status(200).json({ bannedMods: modnames });
+    }
 };

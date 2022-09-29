@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import information from "../../../lib/db/server.js";
+import { Tournament } from '../../../components/interfaces/tournaments.js';
 
 export default async function getAllusers(req: NextApiRequest, res: NextApiResponse) {
 
@@ -7,9 +8,7 @@ export default async function getAllusers(req: NextApiRequest, res: NextApiRespo
         res.status(500).json({ message: 'Method not allowed' });
         return;
     }
-    //Select all tournament ordered by ascending id where public is true
-    const result = await information.query('SELECT id,tournamentname,state,startdate,enddate,signupstatus,twitchchannel,image FROM tournaments WHERE public = true ORDER by ID ASC');
-    //Check if result is empty, else return user
+    const result = await information.query('SELECT id,tournamentname,state,startdate,enddate,signupstatus,image FROM tournaments WHERE public = true ORDER by ID ASC');
     if (result.rows.length === 0) {
         res.status(404).json({ message: 'No public tournaments' });
         return;
