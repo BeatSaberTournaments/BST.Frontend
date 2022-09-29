@@ -7,5 +7,5 @@ export default async function getAllusers(req: NextApiRequest, res: NextApiRespo
     return;
   }
 
-  res.status(200).json({ message: `API is alive! Want to learn more? Head over to https://api.${process.env.URL}/` });
+  res.status(200).json({error:{ message: `API is alive! Want to learn more? Head over to https://api.${process.env.URL}/` }});
 };

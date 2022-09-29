@@ -1,15 +1,15 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import information from "../../../../lib/db/server.js";
+import Information from "../../../../lib/db/server";
 
 export default async function getAllusers(req: NextApiRequest, res: NextApiResponse) {
 
     if (req.method !== 'GET') {
-        res.status(500).json({ message: 'Method not allowed' });
+        res.status(500).json({ error:{ message: 'Method not allowed. Make sure you\'re using GET.' }});
         return;
     }
-    const result = await information.query('SELECT modname FROM banned_mods ORDER by ID ASC');
+    const result = await Information.query('SELECT modname FROM banned_mods ORDER by ID ASC');
     if (result.rows.length === 0) {
-        res.status(404).json({ message: 'No banned mods found' });
+        res.status(404).json({error:{ message: 'No banned mods found.' }});
         return;
     } else {
         const modnames = result.rows.map((mod) => mod.modname);
