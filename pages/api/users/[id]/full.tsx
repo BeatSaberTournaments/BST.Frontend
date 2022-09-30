@@ -1,20 +1,28 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import Information from "../../../../lib/db/server";
+import { getFullUser } from '../../../../components/db/users';
 
-export default async function getAllusers(req: NextApiRequest, res: NextApiResponse) {
+export default async function getTournament(req: NextApiRequest, res: NextApiResponse) {
 
     if (req.method !== 'GET') {
-        res.status(500).json({ error:{ message: 'Method not allowed. Make sure you\'re using GET.' }});
+        res.status(405).json({ error: { message: 'Method not allowed. Make sure you\'re using GET' } });
         return;
     }
 
-    //Query specific user
-    const { id } = req.query;
-    const result = await Information.query(`SELECT * FROM users WHERE scoresaberid = ${id}`);
+    //Set {id} to be a number 
+
+    const { id } = req.query as unknown as { id: bigint };
+
+    //If ID is not a bigint, return error - Argument of type 'bigint' is not assignable to parameter of type 'number', but works??
+    if (isNaN(id)) {
+        res.status(400).json({ error: { message: 'ID should be a number' } });
+        return;
+    }
+
+    const result = await getFullUser(id);
 
     //Check if result is empty, else return user
-    if (result.rows.length === 0) {
-        res.status(404).json({error:{ message: 'User not found' }});
+    if (result == "User not found") {
+        res.status(404).json({ error: { message: result } });
         return;
-    } else { res.status(200).json({ userinfo: result.rows }); }
+    } else { res.status(200).json({ userInfo: result }); }
 };
