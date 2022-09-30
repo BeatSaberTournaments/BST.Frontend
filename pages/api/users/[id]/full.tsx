@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { getFullUser } from '../../../../components/db/users';
+import { getFullUser } from '../../../../lib/db/users';
 
 export default async function getTournament(req: NextApiRequest, res: NextApiResponse) {
 
@@ -10,7 +10,7 @@ export default async function getTournament(req: NextApiRequest, res: NextApiRes
 
     //Set {id} to be a number 
 
-    const { id } = req.query as unknown as { id: bigint };
+    const { id } = req.query as unknown as { id: number };
 
     //If ID is not a bigint, return error - Argument of type 'bigint' is not assignable to parameter of type 'number', but works??
     if (isNaN(id)) {

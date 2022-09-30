@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { getAllUsers } from '../../../components/db/users';
+import { getAllUsers } from '../../../lib/db/users';
 
 export default async function getTournament(req: NextApiRequest, res: NextApiResponse) {
 

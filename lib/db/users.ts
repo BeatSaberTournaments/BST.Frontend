@@ -1,8 +1,8 @@
-import Information from "../../lib/db/server";
-import { User } from '../../components/interfaces/users';
+import Information from "./server";
+import { User } from '../interfaces/users';
 
 //Used on the simple tournament-endpoint.
-export async function getSimpleUser(scoresaberid: bigint) {
+export async function getSimpleUser(scoresaberid: number) {
     const result = await Information.query(`SELECT * FROM users WHERE scoresaberid = ${scoresaberid}`);
     if (result.rows.length === 0) {
         return "User not found";
@@ -19,7 +19,7 @@ export async function getSimpleUser(scoresaberid: bigint) {
 }
 
 //Used on the full user-endpoint.
-export async function getFullUser(scoresaberid: bigint) {
+export async function getFullUser(scoresaberid: number) {
     const result = await Information.query(`SELECT * FROM users WHERE scoresaberid = ${scoresaberid}`);
     if (result.rows.length === 0) {
         return "User not found";

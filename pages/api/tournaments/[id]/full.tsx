@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { getFullTournament } from '../../../../components/db/tournament';
+import { getFullTournament } from '../../../../lib/db/tournament';
 
 export default async function getTournament(req: NextApiRequest, res: NextApiResponse) {
 

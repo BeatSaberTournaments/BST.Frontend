@@ -1,5 +1,5 @@
-import Information from "../../lib/db/server";
-import { Tournament } from '../../components/interfaces/tournaments';
+import Information from "./server";
+import { Tournament } from '../interfaces/tournaments';
 
 //Used on the simple tournament-endpoint.
 export async function getSimpleTournament(id: number) {
@@ -60,16 +60,7 @@ export async function getAllTournaments() {
     } else if (!result.rows[0].public) {
         return "Not public";
     } else {
-        const tournamentInfo: Tournament = {
-            id: result.rows[0].id,
-            tournamentname: result.rows[0].tournamentname,
-            state: result.rows[0].state,
-            startdate: result.rows[0].startdate,
-            enddate: result.rows[0].enddate,
-            signupstatus: result.rows[0].signupstatus,
-            image: result.rows[0].image
-        };
-        return tournamentInfo;
+        return result.rows;
     }
 }
 

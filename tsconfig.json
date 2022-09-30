@@ -24,7 +24,7 @@
     "**/*.ts",
     "**/*.tsx",
     "pages/api/server.js",
-    "lib/db/server.js", "components/interfaces/tournaments.ts"  ],
+    "lib/db/server.ts", "components/interfaces/tournaments.ts"  ],
   "exclude": [
     "node_modules"
   ]
