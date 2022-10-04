@@ -1,0 +1,21 @@
+_id: req_c5b9ea23ac8c4487b89c7b95dc12c6d7
+type: Request
+parentId: fld_5edf5499cadf436b8f8dc094dc063830
+modified: 1664875848856
+created: 1664875831043
+url: http://localhost:3000/api/tournaments/calendar
+name: BST - Tournament Calendar
+description: ""
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1664875523513
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

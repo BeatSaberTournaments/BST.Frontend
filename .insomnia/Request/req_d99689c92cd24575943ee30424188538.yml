@@ -1,0 +1,21 @@
+_id: req_d99689c92cd24575943ee30424188538
+type: Request
+parentId: fld_f28b0485e16a40198c497ca21c5403df
+modified: 1664875540222
+created: 1664875414995
+url: http://localhost:3000/api/tournaments/mods
+name: BST - Banned Mods
+description: ""
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1664875442889
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
