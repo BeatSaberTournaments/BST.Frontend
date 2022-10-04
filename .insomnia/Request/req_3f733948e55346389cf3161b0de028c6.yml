@@ -1,0 +1,21 @@
+_id: req_3f733948e55346389cf3161b0de028c6
+type: Request
+parentId: fld_4aac2e754ea84b6c95e07e75871a3001
+modified: 1664875999136
+created: 1664875989753
+url: ""
+name: BST - User Index
+description: ""
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1664875980634
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

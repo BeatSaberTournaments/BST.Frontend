@@ -1,0 +1,21 @@
+_id: req_7eef305f02f24ca7ababd5ffd47b1bf4
+type: Request
+parentId: fld_46e8d3caa3da4bbaa46318731f8e99a0
+modified: 1664875878522
+created: 1664868938698
+url: http://localhost:3000/api/tournaments/1/simple
+name: BST - Tournaments Simple
+description: ""
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1664875483251
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
