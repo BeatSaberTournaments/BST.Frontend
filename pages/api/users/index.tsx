@@ -11,12 +11,12 @@ const limiter = rateLimit({
  * @swagger
  * /api/users/:
  *   get:
- *     description: Returns the userlist - only for admins
+ *     description: Returns the userlist only for admins
  *     responses:
- *        200:
- *         description: Gives detailed information about the upcoming tournaments
- *        404:
- *         description: No users in database.
+ *       200:
+ *        description: Gives detailed information about the upcoming tournaments
+ *       404:
+ *        description: No users in database.
  *       429:
  *          description: Too many requests.
  */

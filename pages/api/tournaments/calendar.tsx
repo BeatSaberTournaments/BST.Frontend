@@ -11,13 +11,13 @@ const limiter = rateLimit({
  * @swagger
  * /api/tournaments/calendar:
  *   get:
- *     description: Returns the calendar
+ *     description: Returns a list of public tournaments - Developers API key required
  *     responses:
  *        200:
  *         description: Gives detailed information about the upcoming tournaments
  *        404:
  *          description: No tournaments planned.
- *       429:
+ *        429:
  *          description: Too many requests.
  */
 
