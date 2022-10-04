@@ -1,0 +1,173 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Next Swagger API Example",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/": {
+      "get": {
+        "description": "Allows you to check if the API is online.",
+        "responses": {
+          "200": {
+            "description": "API is alive!"
+          }
+        }
+      }
+    },
+    "/api/tournaments/{id}/full": {
+      "get": {
+        "description": "Returns the full tournament information",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The unique id of the user",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Gives full information about the tournament. Useful for creating your own tournament page."
+          },
+          "400": {
+            "description": "Invalid API key/No API key provided"
+          },
+          "404": {
+            "description": "No tournament found."
+          }
+        }
+      }
+    },
+    "/api/tournaments/{id}/simple": {
+      "get": {
+        "description": "Returns the simple tournament information",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The unique id of the user",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Gives simple information about the tournament."
+          },
+          "400": {
+            "description": "Invalid API key/No API key provided"
+          },
+          "404": {
+            "description": "No tournament found."
+          }
+        }
+      }
+    },
+    "/api/tournaments/calendar": {
+      "get": {
+        "description": "Returns the calendar",
+        "responses": {
+          "200": {
+            "description": "Gives detailed information about the upcoming tournaments"
+          },
+          "404": {
+            "description": "No tournaments planned."
+          }
+        }
+      }
+    },
+    "/api/tournaments/": {
+      "get": {
+        "description": "Returns a list of public tournaments",
+        "responses": {
+          "200": {
+            "description": "hello world"
+          },
+          "404": {
+            "description": "No public tournaments found"
+          }
+        }
+      }
+    },
+    "/api/mods/": {
+      "get": {
+        "description": "Returns the list of mods banned from tournaments hosted by BST.",
+        "responses": {
+          "200": {
+            "description": "List of mods"
+          },
+          "404": {
+            "description": "No mods found."
+          }
+        }
+      }
+    },
+    "/api/users/{id}/full": {
+      "get": {
+        "description": "Returns the users full set of information. (That doesn't expose any sensitive information)",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The unique id of the user",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Gives full information about the user. Useful for creating info-cards of the user, or importing to your own code."
+          },
+          "400": {
+            "description": "Invalid API key/No API key provided"
+          },
+          "404": {
+            "description": "No user found."
+          }
+        }
+      }
+    },
+    "/api/tournaments/[id]/": {
+      "get": {
+        "description": "Returns possible endpoints for users",
+        "responses": {
+          "200": {
+            "description": "A list of available endpoints."
+          }
+        }
+      }
+    },
+    "/api/users/{id}/simple": {
+      "get": {
+        "description": "Returns the users simple information.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The unique id of the user",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Gives simple information about the user. Useful for match-handling in a tournament webpanel."
+          },
+          "404": {
+            "description": "No user found."
+          }
+        }
+      }
+    },
+    "/api/hello": {
+      "get": {
+        "description": "Returns the hello world",
+        "responses": {
+          "200": {
+            "description": "hello world"
+          }
+        }
+      }
+    }
+  },
+  "components": {},
+  "tags": []
+}

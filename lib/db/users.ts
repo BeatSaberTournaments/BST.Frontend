@@ -1,6 +1,18 @@
 import Information from "./server";
 import { User } from '../interfaces/users';
 
+
+export async function getDevKey(apikey: string) {
+    const result = await Information.query(`SELECT apikey FROM apiauthkeys WHERE apikey = '${apikey}'`);
+    //Return the API key
+    if (result.rows.length === 0) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
+
 //Used on the simple tournament-endpoint.
 export async function getSimpleUser(scoresaberid: number) {
     const result = await Information.query(`SELECT * FROM users WHERE scoresaberid = ${scoresaberid}`);

@@ -10,15 +10,19 @@
     "export": "next build && next export"
   },
   "dependencies": {
+    "lru-cache": "^7.14.0",
     "next": "12.3.1",
+    "next-swagger-doc": "^0.3.6",
     "pg": "^8.8.0",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "swagger-ui-react": "^4.14.2"
   },
   "devDependencies": {
     "@types/node": "18.7.23",
     "@types/pg": "^8.6.5",
     "@types/react": "18.0.21",
+    "@types/swagger-ui-react": "^4.11.0",
     "eslint": "8.24.0",
     "eslint-config-next": "12.3.1"
   }

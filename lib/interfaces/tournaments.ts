@@ -12,4 +12,5 @@ export interface Tournament {
   twitchchannel?: string;
   public?: boolean;
   image?: string;
+  apikey?: string | string[];
 }

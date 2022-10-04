@@ -1,6 +1,16 @@
 import Information from "./server";
 import { Tournament } from '../interfaces/tournaments';
 
+export async function getAPIKey(id:number,apikey: string) {
+    const result = await Information.query(`SELECT id, apikey FROM tournaments WHERE id = ${id}`);
+    //Return the API key
+    if (apikey == result.rows[0].apikey) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 //Used on the simple tournament-endpoint.
 export async function getSimpleTournament(id: number) {
     const result = await Information.query(`SELECT id,tournamentname,state,startdate,enddate,public FROM tournaments WHERE id = ${id}`);
