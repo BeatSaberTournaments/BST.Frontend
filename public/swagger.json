@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "Next Swagger API Example",
+    "title": "BST API Documentation",
     "version": "1.0"
   },
   "paths": {
@@ -11,18 +11,21 @@
         "responses": {
           "200": {
             "description": "API is alive!"
+          },
+          "429": {
+            "description": "Too many requests."
           }
         }
       }
     },
     "/api/tournaments/{id}/full": {
       "get": {
-        "description": "Returns the full tournament information",
+        "description": "Returns the full tournament information - Reserved for Tournament organizers and website developers",
         "parameters": [
           {
             "name": "id",
             "in": "path",
-            "description": "The unique id of the user",
+            "description": "The unique id of the tournament",
             "required": true
           }
         ],
@@ -35,6 +38,9 @@
           },
           "404": {
             "description": "No tournament found."
+          },
+          "429": {
+            "description": "Too many requests."
           }
         }
       }
@@ -59,37 +65,46 @@
           },
           "404": {
             "description": "No tournament found."
+          },
+          "429": {
+            "description": "Too many requests."
           }
         }
       }
     },
     "/api/tournaments/calendar": {
       "get": {
-        "description": "Returns the calendar",
+        "description": "Returns a list of public tournaments - Developers API key required",
         "responses": {
           "200": {
             "description": "Gives detailed information about the upcoming tournaments"
           },
           "404": {
             "description": "No tournaments planned."
+          },
+          "429": {
+            "description": "Too many requests."
           }
         }
       }
     },
-    "/api/tournaments/": {
+    "/api/tournaments": {
       "get": {
-        "description": "Returns a list of public tournaments",
+        "description": "Returns a list of public tournaments - Developers API key required",
         "responses": {
           "200": {
-            "description": "hello world"
+            "description": "Returns the list of all public tournaments"
           },
           "404": {
             "description": "No public tournaments found"
+          },
+          "429": {
+            "description": "Too many requests."
           }
         }
       }
     },
-    "/api/mods/": {
+    "/api/tournaments/mods": {
       "get": {
         "description": "Returns the list of mods banned from tournaments hosted by BST.",
         "responses": {
@@ -98,6 +113,9 @@
           },
           "404": {
             "description": "No mods found."
+          },
+          "429": {
+            "description": "Too many requests."
           }
         }
       }
@@ -118,20 +136,13 @@
             "description": "Gives full information about the user. Useful for creating info-cards of the user, or importing to your own code."
           },
           "400": {
-            "description": "Invalid API key/No API key provided"
+            "description": "Invalid User ID"
           },
           "404": {
             "description": "No user found."
-          }
-        }
-      }
-    },
-    "/api/tournaments/[id]/": {
-      "get": {
-        "description": "Returns possible endpoints for users",
-        "responses": {
-          "200": {
-            "description": "A list of available endpoints."
+          },
+          "429": {
+            "description": "Too many requests."
           }
         }
       }
@@ -153,16 +164,25 @@
           },
           "404": {
             "description": "No user found."
+          },
+          "429": {
+            "description": "Too many requests."
           }
         }
       }
     },
-    "/api/hello": {
+    "/api/users/": {
       "get": {
-        "description": "Returns the hello world",
+        "description": "Returns the userlist only for admins",
         "responses": {
           "200": {
-            "description": "hello world"
+            "description": "Gives detailed information about the upcoming tournaments"
+          },
+          "404": {
+            "description": "No users in database."
+          },
+          "429": {
+            "description": "Too many requests."
           }
         }
       }
