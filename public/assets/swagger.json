@@ -20,67 +20,7 @@
     },
     "/api/tournaments/{id}/full": {
       "get": {
-        "description": "Returns the full tournament information - Reserved for the Tournaments organizers and website developers",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "The unique id of the tournament",
-            "required": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Gives full information about the tournament. Useful for creating your own tournament page."
-          },
-          "400": {
-            "description": "Invalid API key/No API key provided"
-          },
-          "404": {
-            "description": "No tournament found."
-          },
-          "429": {
-            "description": "Too many requests."
-          }
-        }
-      }
-    },
-    "/api/tournaments/{id}/mappools/{mid}": {
-      "get": {
-        "description": "Returns only the information from the specified mappool. - Reserved for the Tournaments organizers and website developers.",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "The unique id of the tournament",
-            "required": true
-          },
-          {
-            "name": "mid",
-            "in": "path",
-            "description": "The unique mappool id from the tournament. This is the `mappools[x].id` found by just using /tournaments/{id}/mappools.",
-            "required": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Gives full information about the tournament. Useful for creating your own tournament page."
-          },
-          "400": {
-            "description": "Invalid API key/No API key provided"
-          },
-          "404": {
-            "description": "No tournament found."
-          },
-          "429": {
-            "description": "Too many requests."
-          }
-        }
-      }
-    },
-    "/api/tournaments/{id}/mappools": {
-      "get": {
-        "description": "Returns the full tournament information - Reserved for the Tournaments organizers and website developers",
+        "description": "Returns the full tournament information - Reserved for Tournament organizers and website developers",
         "parameters": [
           {
             "name": "id",
@@ -134,7 +74,7 @@
     },
     "/api/tournaments/calendar": {
       "get": {
-        "description": "Returns a list of public tournaments - Developer API key required",
+        "description": "Returns a list of public tournaments - Developers API key required",
         "responses": {
           "200": {
             "description": "Gives detailed information about the upcoming tournaments"
@@ -150,7 +90,7 @@
     },
     "/api/tournaments": {
       "get": {
-        "description": "Returns a list of public tournaments - Developer API key required",
+        "description": "Returns a list of public tournaments - Developers API key required",
         "responses": {
           "200": {
             "description": "Returns the list of all public tournaments"
@@ -182,7 +122,7 @@
     },
     "/api/users/{id}/full": {
       "get": {
-        "description": "Returns the users full set of information, not including sensitive informations.",
+        "description": "Returns the users full set of information. (That doesn't expose any sensitive information)",
         "parameters": [
           {
             "name": "id",

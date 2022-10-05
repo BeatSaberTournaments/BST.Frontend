@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { getAPIKey, getFullTournament } from '../../../../lib/db/tournament';
-import { getDevKey } from '../../../../lib/db/users';
-import rateLimit from '../../../../lib/api/ratelimit';
+import { getAPIKey, getTournamentMapool } from '../../../../../lib/db/tournament';
+import { getDevKey } from '../../../../../lib/db/users';
+import rateLimit from '../../../../../lib/api/ratelimit';
 
 const ratelimit: number = parseInt(process.env.TOURNAMENT_RATELIMIT) || 10;
 const limiter = rateLimit({
@@ -11,13 +11,17 @@ const limiter = rateLimit({
 
 /**
  * @swagger
- * /api/tournaments/{id}/full:
+ * /api/tournaments/{id}/mappools/{mid}:
  *   get:
- *     description: Returns the full tournament information - Reserved for Tournament organizers and website developers
+ *     description: Returns only the information from the specified mappool. - Reserved for Tournament organizers and website developers.
  *     parameters:
  *      - name: id
  *        in: path
  *        description: The unique id of the tournament
+ *        required: true
+ *      - name: mid
+ *        in: path
+ *        description: The unique mappool id from the tournament. This is the `mappools[x].id` found by just using /tournaments/{id}/mappools. 
  *        required: true
  *     responses:
  *       200:
@@ -30,18 +34,15 @@ const limiter = rateLimit({
  *          description: Too many requests.
  */
 
-export default async function getTournament(req: NextApiRequest, res: NextApiResponse) {
+export default async function getTournamentMappools(req: NextApiRequest, res: NextApiResponse) {
   try {
     await limiter.check(res, ratelimit, 'CACHE_TOKEN');
 
     const { id } = req.query as unknown as { id: number };
+    const { mid } = req.query as unknown as { mid: number };
     const { apikey } = req.headers as unknown as { apikey: string };
-    let key: boolean;
 
-    if (isNaN(id)) {
-      res.status(400).json({ error: { message: 'Invalid tournament ID' } });
-      return;
-    }
+    let key: boolean;
 
     if (apikey == undefined || apikey.length == 0) {
       res.status(400).json({ error: { message: 'No API key provided' } });
@@ -49,14 +50,12 @@ export default async function getTournament(req: NextApiRequest, res: NextApiRes
     }
     if (apikey.substring(0, 4) === "BSTT") {
       key = await getAPIKey(id, apikey);
-      console.log(key);
     } else if (apikey.substring(0, 4) === "BSTD") {
       key = await getDevKey(apikey);
-      console.log(key);
     }
 
     if (req.method == 'GET' && key) {
-      const result = await getFullTournament(id);
+      const result = await getTournamentMapool(id,mid);
       if (result == "Not found") {
         res.status(404).json({ error: { message: "Tournament doesn't exist." } });
         return;
