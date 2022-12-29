@@ -16,6 +16,7 @@
 /build
 
 # misc
+TODO.md
 .DS_Store
 *.pem
 
@@ -34,4 +35,5 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-ArrayFormats.txt
+
+.vercel

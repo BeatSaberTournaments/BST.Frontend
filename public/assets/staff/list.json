@@ -1,0 +1,108 @@
+{
+  "Members": [
+    {
+      "Developers": [
+        {
+          "Name": "NightHawk",
+          "Roles": ["OWNR", "DEV", "ADM", "TMOD"],
+          "ScoreSaberID": "76561198086326146",
+          "Discord": "592779895084679188",
+          "Twitter": "ThaNightHawkTV",
+          "Twitch": "ThaNightHawk"
+        },
+        {
+          "Name": "NightHawk2",
+          "Roles": ["DEV", "ADM", "TMOD"],
+          "ScoreSaberID": "76561198086326146",
+          "Discord": "592779895084679188",
+          "Twitter": "ThaNightHawkTV",
+          "Twitch": ""
+        },
+        {
+          "Name": "NightHawk3",
+          "Roles": ["DEV","TMOD"],
+          "ScoreSaberID": "76561198086326146",
+          "Discord": "592779895084679188",
+          "Twitter": "",
+          "Twitch": ""
+        },
+        {
+          "Name": "NightHawk4",
+          "Roles": ["DEV"],
+          "ScoreSaberID": "76561198086326146",
+          "Discord": "",
+          "Twitter": "",
+          "Twitch": ""
+        }
+      ],
+      "Admins": [
+        {
+          "Name": "NightHawk",
+          "Roles": ["OWNR", "ADM"],
+          "ScoreSaberID": "76561198086326146",
+          "Discord": "592779895084679188",
+          "Twitter": "ThaNightHawkTV",
+          "Twitch": "ThaNightHawk"
+        },
+        {
+          "Name": "NightHawk2",
+          "Roles": ["ADM", "TMOD"],
+          "ScoreSaberID": "76561198086326146",
+          "Discord": "592779895084679188",
+          "Twitter": "ThaNightHawkTV",
+          "Twitch": ""
+        },
+        {
+          "Name": "NightHawk3",
+          "Roles": ["ADM"],
+          "ScoreSaberID": "76561198086326146",
+          "Discord": "592779895084679188",
+          "Twitter": "",
+          "Twitch": ""
+        },
+        {
+          "Name": "NightHawk4",
+          "Roles": ["ADM"],
+          "ScoreSaberID": "76561198086326146",
+          "Discord": "",
+          "Twitter": "",
+          "Twitch": ""
+        }
+      ],
+      "TournamentModerators": [
+        {
+          "Name": "NightHawk",
+          "Roles": ["TMOD"],
+          "ScoreSaberID": "76561198086326146",
+          "Discord": "592779895084679188",
+          "Twitter": "ThaNightHawkTV",
+          "Twitch": "ThaNightHawk"
+        },
+        {
+          "Name": "NightHawk2",
+          "Roles": ["TMOD"],
+          "ScoreSaberID": "76561198086326146",
+          "Discord": "592779895084679188",
+          "Twitter": "ThaNightHawkTV",
+          "Twitch": ""
+        },
+        {
+          "Name": "NightHawk3",
+          "Roles": ["TMOD"],
+          "ScoreSaberID": "76561198086326146",
+          "Discord": "592779895084679188",
+          "Twitter": "",
+          "Twitch": ""
+        },
+        {
+          "Name": "NightHawk4",
+          "Roles": ["TMOD"],
+          "ScoreSaberID": "76561198086326146",
+          "Discord": "",
+          "Twitter": "",
+          "Twitch": ""
+        }
+      ]
+    }
+  ]
+}
