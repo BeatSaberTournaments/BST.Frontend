@@ -19,6 +19,7 @@
 TODO.md
 .DS_Store
 *.pem
+.vs
 
 # debug
 npm-debug.log*
