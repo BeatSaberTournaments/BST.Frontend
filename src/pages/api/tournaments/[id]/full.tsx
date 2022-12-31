@@ -18,7 +18,7 @@ export default async function getTournament(
 
     const { id } = req.query as unknown as { id: number };
     const { apikey } = req.headers as unknown as { apikey: string };
-    let key: boolean;
+    let key: boolean = false;
 
     if (isNaN(id)) {
       res.status(400).json({ error: { message: "Invalid tournament ID" } });
@@ -31,10 +31,8 @@ export default async function getTournament(
     }
     if (apikey.substring(0, 4) === "BSTT") {
       key = await getAPIKey(id, apikey);
-      console.log(key);
     } else if (apikey.substring(0, 4) === "BSTD") {
       key = await getDevKey(apikey);
-      console.log(key);
     }
 
     if (req.method == "GET" && key) {

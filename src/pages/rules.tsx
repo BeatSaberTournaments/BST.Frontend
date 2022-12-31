@@ -6,8 +6,7 @@ import DividerLeft from "@comp/UI/General/DividerLeft";
 import { Tabs } from "flowbite-react";
 import { BookOpenIcon } from "@heroicons/react/24/outline";
 import H3 from "@comp/UI/General/H3";
-
-import type { RulesType } from "@lib/types/Rules";
+import { RulesType } from "@lib/types/rules";
 
 let url: string;
 let jsonData: any;

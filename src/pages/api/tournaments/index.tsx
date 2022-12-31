@@ -17,7 +17,7 @@ export default async function getAllExistingTournaments(
     await limiter.check(res, ratelimit, "CACHE_TOKEN");
 
     const { apikey } = req.headers as unknown as { apikey: string };
-    let key: boolean;
+    let key: boolean = false;
 
     if (apikey == undefined || apikey == null) {
       res.status(400).json({ error: { message: "No API key provided" } });

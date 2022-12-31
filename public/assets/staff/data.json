@@ -1,0 +1,73 @@
+{
+  "events": [
+    {
+      "id": "0d642d3a-e910-481e-87d8-4abf2eb940ac",
+      "eventType": "battleroyale",
+      "name": "Dane Saber Battle Royale",
+      "description": "Dane Sabers 3rd Battle Royale",
+      "time": "2PM UTC+1",
+      "maxEntries": 16,
+      "eventTypeId": "e989ccb9-4b72-4296-a883-b248271dcc6b",
+      "cancelled": false,
+      "rounds": false,
+      "entryCount": 1,
+      "complete": false,
+      "startDate": "2022-12-31",
+      "endDate": "2023-01-05",
+      "isLive": false,
+      "url": true
+    },
+    {
+      "id": "0d642d3a-e910-481e-87d8-4abf2eb940a1",
+      "eventType": "standard",
+      "name": "Dane Saber Battle Royale",
+      "description": "Dane Sabers 4th Battle Royale",
+      "time": "2PM UTC+1",
+      "maxEntries": 16,
+      "eventTypeId": "e989ccb9-4b72-4296-a883-b248271dcc6b",
+      "cancelled": true,
+      "rounds": 6,
+      "entryCount": 16,
+      "complete": false,
+      "startDate": "2022-12-30",
+      "endDate": false,
+      "isLive": false,
+      "url": true
+    },
+    {
+      "id": "0d642d3a-e910-481e-87d8-4abf2eb940a2",
+      "eventType": "battleroyale",
+      "name": "Dane Saber Battle Royale",
+      "description": "Dane Sabers 5th Battle Royale",
+      "time": "2PM UTC+1",
+      "maxEntries": 16,
+      "eventTypeId": "e989ccb9-4b72-4296-a883-b248271dcc6b",
+      "cancelled": false,
+      "rounds": 10,
+      "entryCount": 1,
+      "complete": true,
+      "startDate": "2022-12-30",
+      "endDate": false,
+      "isLive": false,
+      "url": true
+    },
+    {
+      "id": "0d642d3a-e910-481e-87d8-4abf2eb940a3",
+      "eventType": "battleroyale",
+      "name": "Dane Saber Battle Royale",
+      "description": "Dane Sabers 6th Battle Royale",
+      "time": "2PM UTC+1",
+      "maxEntries": 16,
+      "eventTypeId": "e989ccb9-4b72-4296-a883-b248271dcc6b",
+      "cancelled": false,
+      "rounds": 10,
+      "entryCount": 1,
+      "complete": true,
+      "startDate": "2022-12-30",
+      "endDate": false,
+      "isLive": false,
+      "url": true
+    }
+  ],
+  "url": "/events"
+}

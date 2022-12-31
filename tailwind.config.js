@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 const purgecss = require("@fullhuman/postcss-purgecss");
+const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
   content: [
@@ -14,6 +15,7 @@ module.exports = {
       //Add Hikou outline
       hikou: ["Hikou", "sans-serif", "ui-sans-serif", "system-ui"],
       poppins: ["Poppins", "sans-serif", "ui-sans-serif", "system-ui"],
+      sans: ["Inter", ...defaultTheme.fontFamily.sans],
     },
   },
   plugins: [

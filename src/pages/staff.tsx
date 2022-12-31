@@ -4,7 +4,7 @@ import Header from "@comp/Meta/Title";
 import StaffPanel from "@comp/Staff/StaffPanel";
 import PageHeader from "@comp/UI/General/PageHeader";
 
-import type { StaffTeam } from "@lib/types/StaffTeam";
+import type { StaffTeam } from "@lib/types/staffTeam";
 
 let url: string;
 let jsonData: any;
@@ -27,10 +27,10 @@ export default function Staff() {
     load
       ? ""
       : setTimeout(() => {
-        const staffDiv = document.querySelector(".staffDiv");
-        staffDiv!.classList.remove("opacity-0");
-        staffDiv!.classList.add("translate-y-[10px]");
-      }, 50);
+          const staffDiv = document.querySelector(".staffDiv");
+          staffDiv!.classList.remove("opacity-0");
+          staffDiv!.classList.add("translate-y-[10px]");
+        }, 50);
   }
   return (
     <>
@@ -64,7 +64,7 @@ export default function Staff() {
                     staffMembers={item.Admins}
                   />
                   <StaffPanel
-                    key={index + 2}
+                    key={index + 3}
                     title="Tournament Moderators"
                     staffMembers={item.TournamentModerators}
                   />

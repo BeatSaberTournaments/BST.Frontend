@@ -16,6 +16,7 @@
     "incremental": true,
     "paths": {
       "@comp/*": ["./src/components/*"],
+      "@ui/*": ["./src/components/UI/Components/*"],
       "@lib/*": ["./src/lib/*"],
       "@style/*": ["./src/styles/*"]
     }

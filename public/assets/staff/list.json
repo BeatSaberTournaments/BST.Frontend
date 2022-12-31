@@ -4,6 +4,7 @@
       "Developers": [
         {
           "Name": "NightHawk",
+          "Image": "NightHawk",
           "Roles": ["OWNR", "DEV", "ADM", "TMOD"],
           "ScoreSaberID": "76561198086326146",
           "Discord": "592779895084679188",
@@ -12,6 +13,7 @@
         },
         {
           "Name": "NightHawk2",
+          "Image": "NightHawk",
           "Roles": ["DEV", "ADM", "TMOD"],
           "ScoreSaberID": "76561198086326146",
           "Discord": "592779895084679188",
@@ -20,7 +22,8 @@
         },
         {
           "Name": "NightHawk3",
-          "Roles": ["DEV","TMOD"],
+          "Image": "NightHawk",
+          "Roles": ["DEV", "TMOD"],
           "ScoreSaberID": "76561198086326146",
           "Discord": "592779895084679188",
           "Twitter": "",
@@ -28,6 +31,7 @@
         },
         {
           "Name": "NightHawk4",
+          "Image": "NightHawk",
           "Roles": ["DEV"],
           "ScoreSaberID": "76561198086326146",
           "Discord": "",
@@ -38,6 +42,7 @@
       "Admins": [
         {
           "Name": "NightHawk",
+          "Image": "NightHawk",
           "Roles": ["OWNR", "ADM"],
           "ScoreSaberID": "76561198086326146",
           "Discord": "592779895084679188",
@@ -46,6 +51,7 @@
         },
         {
           "Name": "NightHawk2",
+          "Image": "NightHawk",
           "Roles": ["ADM", "TMOD"],
           "ScoreSaberID": "76561198086326146",
           "Discord": "592779895084679188",
@@ -54,6 +60,7 @@
         },
         {
           "Name": "NightHawk3",
+          "Image": "NightHawk",
           "Roles": ["ADM"],
           "ScoreSaberID": "76561198086326146",
           "Discord": "592779895084679188",
@@ -62,6 +69,7 @@
         },
         {
           "Name": "NightHawk4",
+          "Image": "NightHawk",
           "Roles": ["ADM"],
           "ScoreSaberID": "76561198086326146",
           "Discord": "",
@@ -72,6 +80,7 @@
       "TournamentModerators": [
         {
           "Name": "NightHawk",
+          "Image": "NightHawk",
           "Roles": ["TMOD"],
           "ScoreSaberID": "76561198086326146",
           "Discord": "592779895084679188",
@@ -80,6 +89,7 @@
         },
         {
           "Name": "NightHawk2",
+          "Image": "NightHawk",
           "Roles": ["TMOD"],
           "ScoreSaberID": "76561198086326146",
           "Discord": "592779895084679188",
@@ -88,6 +98,7 @@
         },
         {
           "Name": "NightHawk3",
+          "Image": "NightHawk",
           "Roles": ["TMOD"],
           "ScoreSaberID": "76561198086326146",
           "Discord": "592779895084679188",
@@ -96,6 +107,7 @@
         },
         {
           "Name": "NightHawk4",
+          "Image": "NightHawk",
           "Roles": ["TMOD"],
           "ScoreSaberID": "76561198086326146",
           "Discord": "",

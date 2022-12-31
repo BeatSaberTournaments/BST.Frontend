@@ -1,8 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import {
-  getAPIKey,
-  getTournamentMapools,
-} from "@lib/db/tournament";
+import { getAPIKey, getTournamentMapools } from "@lib/db/tournament";
 import { getDevKey } from "@lib/db/users";
 import rateLimit from "@lib/api/ratelimit";
 
@@ -22,7 +19,7 @@ export default async function getTournamentMappools(
     const { id } = req.query as unknown as { id: number };
     const { mid } = req.query as unknown as { mid: number };
     const { apikey } = req.headers as unknown as { apikey: string };
-    let key: boolean;
+    let key: boolean = false;
 
     if (apikey == undefined || apikey.length == 0) {
       res.status(400).json({ error: { message: "No API key provided" } });

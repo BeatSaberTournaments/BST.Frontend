@@ -8,7 +8,6 @@ const limiter = rateLimit({
   uniqueTokenPerInterval: 500, // Max 500 users per second
 });
 
-
 export default async function getTournamentCalendar(
   req: NextApiRequest,
   res: NextApiResponse

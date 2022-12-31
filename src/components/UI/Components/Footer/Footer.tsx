@@ -89,7 +89,7 @@ export default function Footer() {
           <p className="text-gray-400 flex">
             <span className="hidden md:block ml-2">
               &copy; {process.env.NEXT_PUBLIC_YEAR} | All rights reserved | Made
-              with ❤️ by the BST Team
+              with ❤️ by Hawk
             </span>
           </p>
         </div>
