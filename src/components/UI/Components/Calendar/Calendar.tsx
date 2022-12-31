@@ -37,7 +37,7 @@ export default function Calendar(props: CalendarProps) {
   return (
     <div className="max-w-4xl mt-10 mx-6 sm:mx-auto">
       <div className="relative inline-flex w-full mb-12">
-        <div className="absolute right-0">
+        <div className="absolute left-0">
           <div className="relative inline-flex">
             <FilterMenu
               {...{

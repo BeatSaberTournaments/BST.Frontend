@@ -81,7 +81,7 @@ export default function FilterMenu({
           </Menu.Button>
         </div>
 
-        <Menu.Items className="z-10 origin-top-right absolute right-0 mt-2 w-34 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+        <Menu.Items className="z-10 origin-top-right absolute left-2 w-35 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
           {Object.keys(filters).map((filterName: string, key: number) => {
             return (
               <Menu.Item key={key}>
