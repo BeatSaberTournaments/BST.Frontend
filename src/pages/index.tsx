@@ -4,9 +4,8 @@ import Header from "@comp/Meta/Title";
 import PageHeader from "@comp/UI/General/PageHeader";
 
 let url: string;
-let jsonData: any;
 let load: boolean = true;
-export default function Home() {
+export default function Home({ session }: { session: boolean | String }) {
   load = false;
   useEffect(() => {
     url = window.location.href;

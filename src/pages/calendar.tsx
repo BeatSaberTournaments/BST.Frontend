@@ -5,7 +5,7 @@ import PageHeader from "@comp/UI/General/PageHeader";
 import Calendar from "@ui/Calendar/Calendar";
 import { APICalendarEvent } from "@lib/types/calendar";
 
-const DATA_SOURCE_URL = "./assets/staff/data.json";
+const DATA_SOURCE_URL = `${process.env.NEXT_PUBLIC_URL}/assets/staff/data.json`;
 let url: string;
 export default function Rules() {
   const [isLoading, setIsLoading] = useState(false);
@@ -20,22 +20,20 @@ export default function Rules() {
       const response = await fetch(DATA_SOURCE_URL);
       const { events }: { events: APICalendarEvent[] } = await response.json();
       //Check all startDate and endDates. If they match the date, or if the date is between the start and end date, set it isLive to true
-      events.forEach((events) => {
-        const startDate = new Date(events.startDate);
-        const endDate = new Date(events.endDate);
+      events.forEach((event) => {
+        const startDate = new Date(event.startDate);
+        const endDate = new Date(event.endDate);
         const currentDate = new Date();
-        if (startDate.getDate() === currentDate.getDate()) {
-          events.isLive = true;
-        } else if (endDate.getDate() === currentDate.getDate()) {
-          events.isLive = true;
-        } else if (
-          startDate.getDate() < currentDate.getDate() &&
-          endDate.getDate() > currentDate.getDate()
-        ) {
-          events.isLive = true;
-        }
+        event.isLive = startDate <= currentDate && currentDate <= endDate;
+        event.complete = currentDate > endDate && !event.cancelled;
       });
-      console.log(events);
+      //Sort the events by Year/Month/Day
+      events.sort((a, b) => {
+        const aDate = new Date(a.startDate).getTime();
+        const bDate = new Date(b.startDate).getTime();
+        return aDate - bDate;
+      });
+
       setData(events);
       setIsLoading(false);
     };

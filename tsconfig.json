@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
+    "allowJs": false,
     "skipLibCheck": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
@@ -17,8 +17,11 @@
     "paths": {
       "@comp/*": ["./src/components/*"],
       "@ui/*": ["./src/components/UI/Components/*"],
+      "@calu/*": ["./src/components/UI/Components/Calendar/utils/*"],
       "@lib/*": ["./src/lib/*"],
-      "@style/*": ["./src/styles/*"]
+      "@style/*": ["./src/styles/*"],
+      "@sescomp": ["./src/lib/api/sessioncomp.ts"],
+      "@public": ["./public/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

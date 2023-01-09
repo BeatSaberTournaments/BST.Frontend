@@ -33,6 +33,8 @@ No API-routes as of yet, apart from the default `/api/hello` route.
 
 ## Learn More
 
+To understand the arrays in the Database, read the [Database Explanation](DATABASE.md).
+
 To learn more about Next.js, take a look at the following resources:
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.

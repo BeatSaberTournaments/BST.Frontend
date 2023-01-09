@@ -1,7 +1,7 @@
 import moment from "moment";
 import { GridCard, GridComingSoonCard, GridSkeleton } from "./GridCard";
 import { APICalendarEvent } from "@lib/types/calendar";
-import { classNames } from "../../utils/Classes";
+import { classNames } from "@calu/Classes";
 import { useState } from "react";
 
 interface GridViewProps {
@@ -82,15 +82,24 @@ export function GridView(props: GridViewProps) {
                 return (
                   <button
                     key={key}
-                    className={classNames(`${selectedMonth === month ? "text-pink-600 ml-[-1rem]": "text-slate-900"}`,"flex items-center dark:text-white hover:text-pink-600 justify-between font-medium text-slate-700 w-20 py-3 mr-1 text-left")}
+                    className={classNames(
+                      `${
+                        selectedMonth === month
+                          ? "text-pink-600 dark:text-white ml-[-1rem]"
+                          : "text-slate-900"
+                      }`,
+                      "flex items-center dark:text-white hover:text-pink-600 justify-between font-medium text-slate-700 w-20 py-3 mr-1 text-left"
+                    )}
                     onClick={() => setSelectedMonth(month)}
                   >
-                    <span className="block">
+                    <span className="flex ">
                       {moment(new Date(2022, month, 1)).format("MMM")}
                     </span>
                     <span
                       className={classNames(
-                        `${selectedMonth === month ? "bg-pink-600"
+                        `${
+                          selectedMonth === month
+                            ? "bg-pink-600"
                             : "bg-slate-600"
                         }`,
                         "z-0 block w-3.5 h-3.5 border-2 border-white rounded-full text-white"
@@ -114,15 +123,19 @@ export function GridView(props: GridViewProps) {
                       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-4">
                         {data &&
                           data
-                            .filter(
-                              ({ startDate }) =>
-                                new Date(startDate).getMonth() === month
-                            )
-                            .filter(
-                              (event) =>
-                                new Date(event.startDate).getFullYear() ===
-                                selectedYear
-                            )
+                            .filter(({ startDate, endDate }) => {
+                              const startMonth = new Date(startDate).getMonth();
+                              const endMonth = new Date(endDate).getMonth();
+                              const startYear = new Date(
+                                startDate
+                              ).getFullYear();
+                              const endYear = new Date(endDate).getFullYear();
+                              return (
+                                (startMonth === month &&
+                                  startYear === selectedYear) ||
+                                (endMonth === month && endYear === selectedYear)
+                              );
+                            })
                             .filter(({ eventType }) => filters[eventType])
                             .map((event, key) => (
                               <GridCard key={key} {...{ event, handleClick }} />
@@ -130,15 +143,18 @@ export function GridView(props: GridViewProps) {
 
                         {/* TODO: refactor. Here we drop in a placeholder to cover when no future events have been published. */}
                         {data
-                          .filter(
-                            ({ startDate }) =>
-                              new Date(startDate).getMonth() === month
-                          )
-                          .filter(
-                            (event) =>
-                              new Date(event.startDate).getFullYear() ===
-                              selectedYear
-                          ).length === 0 && <GridComingSoonCard />}
+                          //Filter and show events for the given month and year + add events with endDates in another month
+                          .filter(({ startDate, endDate }) => {
+                            const startMonth = new Date(startDate).getMonth();
+                            const endMonth = new Date(endDate).getMonth();
+                            const startYear = new Date(startDate).getFullYear();
+                            const endYear = new Date(endDate).getFullYear();
+                            return (
+                              (startMonth === month &&
+                                startYear === selectedYear) ||
+                              (endMonth === month && endYear === selectedYear)
+                            );
+                          }).length === 0 && <GridComingSoonCard />}
                       </div>
                     </div>
                   );

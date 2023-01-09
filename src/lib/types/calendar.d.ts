@@ -22,11 +22,6 @@ export interface EventType {
   canRegister: boolean;
 }
 
-// Additionally:
-//eventTypeId:	string;
-//isLiveUrl:	string;
-//timeControl:	string;
-
 export interface APICalendarEvent {
   id: string;
   name: string;

@@ -17,7 +17,7 @@ export default async function getAPIIndex(
       return;
     }
     res.status(200).json({
-      message: `API is alive! Want to learn more? Head over to https://api.${process.env.URL}/`,
+      message: `API is alive! Want to learn more? Head over to ${process.env.NEXT_PUBLIC_URL}/docs`,
     });
   } catch {
     return res.status(429).json({ error: { message: "Too many requests" } });

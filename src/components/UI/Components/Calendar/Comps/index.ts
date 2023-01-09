@@ -3,4 +3,4 @@ import FilterMenu from "./FilterMenu";
 
 import { GridView } from "./Grid";
 
-export { FilterMenu, GridView};
+export { FilterMenu, GridView };

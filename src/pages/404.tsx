@@ -2,7 +2,7 @@ import React from "react";
 import Header from "@comp/Meta/Title";
 import PageHeader from "@comp/UI/General/PageHeader";
 
-export default function Home() {
+export default function FourOFour() {
   return (
     <>
       <Header title={`404`} />

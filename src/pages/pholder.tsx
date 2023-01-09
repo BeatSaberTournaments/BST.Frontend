@@ -32,8 +32,9 @@ export default function Placeholder() {
 
         {load ? ( //Insert Tailwind spinner
           <>
-            <div className="flex justify-center">
-              <div className="animate-spin rounded-full h-24 w-24 border-t-2 border-black dark:border-white drop-shadow-[0_0_1px_rgba(0,0,0,0.50)] flex justify-center align-middle mt-[15%]"></div>
+            <div className="flex flex-col flex-wrap justify-center items-center">
+              <p className="FourOFour text-[64px]">NOTHING HERE YET!</p>
+              <div className="animate-spin rounded-full h-24 w-24 border-t-2 border-black dark:border-white drop-shadow-[0_0_1px_rgba(0,0,0,0.50)] mt-[1rem]"></div>
             </div>
           </>
         ) : (

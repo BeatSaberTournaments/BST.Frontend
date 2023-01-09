@@ -16,7 +16,6 @@ export interface Tournament {
   apikey?: string | string[];
 }
 
-//The Interface/Array structure for the mappools-column in the database.
 export interface MapPool {
   id: number | number[];
   round: number | number[];
@@ -26,7 +25,6 @@ export interface MapPool {
   songs: Song[] | Song[][];
 }
 
-//The interface/array structure for the song-array from the mappools-array in the database.
 export interface Song {
   name: string;
   bsr: number;

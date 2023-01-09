@@ -7,6 +7,7 @@ import { Tabs } from "flowbite-react";
 import { BookOpenIcon } from "@heroicons/react/24/outline";
 import H3 from "@comp/UI/General/H3";
 import { RulesType } from "@lib/types/rules";
+import Link from "next/link";
 
 let url: string;
 let jsonData: any;
@@ -14,7 +15,7 @@ let load: boolean = true;
 export default function Rules() {
   const [rules, setData] = useState<RulesType[]>([]);
   useEffect(() => {
-    fetch(`/assets/staff/rules.json`)
+    fetch(`/assets/staff/rules.json`, { next: { revalidate: 120 } })
       .then((response) => response.json())
       .then((json) => {
         jsonData = json;
@@ -59,6 +60,16 @@ export default function Rules() {
                 </p>
                 <p className="text-gray-900 dark:text-white text-[18px] mt-2">
                   If you have any questions, please contact a staff member.
+                </p>
+                <DividerLeft />
+                <p className="text-[18px] mt-2 italic opacity-[75%] ">
+                  BannedMods-checker:{" "}
+                  <Link
+                    className="text-gray-900 underline font-bold dark:text-[#b86969]"
+                    href="/bannedmods"
+                  >
+                    Click here
+                  </Link>
                 </p>
               </div>
               <div className="px-4 py-5 sm:p-6">

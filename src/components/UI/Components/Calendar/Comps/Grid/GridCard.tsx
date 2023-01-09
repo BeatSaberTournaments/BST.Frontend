@@ -1,11 +1,8 @@
-import { getMonth, prettyDate } from "../../utils/DateFormatting";
+import { prettyDate } from "@calu/DateFormatting";
 import { APICalendarEvent } from "@lib/types/calendar";
-import { classNames } from "../../utils/Classes";
-import {
-  CalendarDaysIcon,
-  ClockIcon,
-  FlagIcon,
-} from "@heroicons/react/24/outline";
+import { classNames } from "@calu/Classes";
+import { NotYetImplemented } from "@comp/UI/General/Alerts";
+import { CalendarDaysIcon, ClockIcon } from "@heroicons/react/24/outline";
 
 interface GridCardProps {
   event: APICalendarEvent;
@@ -14,6 +11,15 @@ interface GridCardProps {
 
 export function GridCard(props: GridCardProps) {
   const { event, handleClick } = props;
+
+  //If the event is between startDate and endDate set it to live
+  const isLive = (event: APICalendarEvent): boolean => {
+    const now = new Date();
+    const startDate = new Date(event.startDate);
+    const endDate = new Date(event.endDate);
+
+    return now >= startDate && now <= endDate;
+  };
 
   return (
     <>
@@ -42,7 +48,7 @@ export function GridCard(props: GridCardProps) {
         key="PropCard"
         className="relative z-0 pt-6 pl-6 pb-4 pr-4 shadow-2xl flex flex-col rounded-xl bg-white border-b border-l border-r border-gray-200"
       >
-        {event.isLive && !event.complete && (
+        {isLive(event) && !event.complete && (
           <div
             className={classNames(
               "animate-pulse absolute top-0 inset-x-0 px-4 py-1 sm:px-6 border-t text-xs rounded-t-xl"
@@ -88,18 +94,23 @@ export function GridCard(props: GridCardProps) {
             </p>
           </div>
         </div>
-        <div className="absolute bottom-0 bg-gray-100 inset-x-0 px-4 py-1 sm:px-6 border-b text-xs rounded-b-xl">
-          <div className="text-center align-middle">
-            <div className="text-x text-slate-700 hover:underline cursor-pointer">
-              <a
-                className="inline-flex items-center text-slate-700 "
-                onClick={() => handleClick(`${event.url}/${event.id}`)}
-              >
-                More Info
-              </a>
+        {event.url && event.id && (
+          <div className="absolute bottom-0 bg-gray-100 inset-x-0 px-4 py-1 sm:px-6 border-b text-xs rounded-b-xl">
+            <div className="text-center align-middle">
+              <div className="text-x text-slate-700 hover:underline cursor-pointer">
+                <a
+                  className="inline-flex items-center text-slate-700 "
+                  // onClick={() => handleClick(`${event.url}/${event.id}`)}
+                  onClick={() => {
+                    NotYetImplemented();
+                  }}
+                >
+                  More Info
+                </a>
+              </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
     </>
   );
@@ -111,12 +122,12 @@ export function GridComingSoonCard() {
       <div className="bg-teal-500 absolute top-0 inset-x-0 px-4 py-1 sm:px-6 border-t text-xs rounded-t-xl"></div>
       <header>
         <h3 className="h4 font-red-hat-display mb-1 text-center text-gray-900">
-          No events right now!
+          No tournaments found.
         </h3>
       </header>
       <div className="text-gray-600 flex-grow mb-5">
         <p className="text-gray-900 text-base text-center">
-          Be on the lookout for more events coming soon!
+          Either; no tournaments planned, or it&apos;s not public.
         </p>
       </div>
       <div className="absolute bottom-0 bg-gray-100 inset-x-0 px-4 py-1 sm:px-6 border-b text-xs rounded-b-xl"></div>

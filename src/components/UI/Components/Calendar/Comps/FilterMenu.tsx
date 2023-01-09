@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Menu } from "@headlessui/react";
-import { classNames } from "../utils/Classes";
+import { classNames } from "@calu/Classes";
 
 interface FilerMenuProps {
   filters: {
