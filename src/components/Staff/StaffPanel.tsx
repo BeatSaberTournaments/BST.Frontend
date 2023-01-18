@@ -52,7 +52,7 @@ export default function StaffPanel({
                         alt="PFP"
                         placeholder="empty"
                         className="staffImage select-none"
-                        src={`/assets/images/users/${item.Image}.png`}
+                        src={`/assets/images/users/${item.Image}`}
                       />
                       <div className="flex flex-col -ml-[60px] pt-3 min-w-[220px] items-start">
                         <span className="text-black-800 text-[22px] font-semibold dark:text-slate-200 z-10 hover:cursor-default">

@@ -36,9 +36,15 @@ export default function AdminMods({ session }: { session: User }) {
           ) : (
             <>
               <Header
-                title={`Calendar`}
+                title={`${
+                  perm === 10
+                    ? "Developer Panel"
+                    : perm === 9
+                    ? "Admin Panel"
+                    : perm === 8 && "Moderator Panel"
+                }`}
                 link={url}
-                contents={`Calendar | The Calendar on ${process.env.NEXT_PUBLIC_NAME}.`}
+                contents={`Staff Panel | The Staff Panel on ${process.env.NEXT_PUBLIC_NAME}.`}
               />
               <div className="max-w-[1340px] mx-auto pt-10 px-4 sm:px-6 lg:px-8">
                 <PageHeader

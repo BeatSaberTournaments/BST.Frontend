@@ -26,7 +26,7 @@ export async function getStaffMembers() {
       const SSID = JSON.parse(row.scoresaberdata);
       const member: Member = {
         Name: row.name,
-        Image: row.id,
+        Image: row.image,
         Roles: JSON.parse(row.roles),
         ScoreSaberID: SSID[0],
         Discord: row.id,

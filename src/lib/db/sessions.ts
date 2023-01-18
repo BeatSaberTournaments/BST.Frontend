@@ -67,7 +67,7 @@ export async function getSession(cookie: any) {
     const session: User = {
       id: user.rows[0].id,
       name: user.rows[0].name,
-      avatar: `/assets/images/users/${user.rows[0].id}.png`,
+      avatar: `/assets/images/users/${user.rows[0].image}`,
       permissions: user.rows[0].permissions,
       roles: JSON.parse(user.rows[0].roles),
       scoresaberdata: JSON.parse(user.rows[0].scoresaberdata),

@@ -1,5 +1,5 @@
 import CryptoJS from "crypto-js";
-import { NextApiRequest, NextApiResponse } from "next";
+import * as https from "https";
 
 const secret = process.env.AUTHSECRET || "devsecret";
 const salt = process.env.SALT || "devsalt";
@@ -16,7 +16,17 @@ export function decrypt(text: string) {
 }
 
 // Create a new session and return it
-export function createData(id: string, refresh_token: string) {
+export function createData(id: string, avatar: string | any, refresh_token: string) {
+  https.get(`https://cdn.discordapp.com/avatars/${id}/${avatar}?size=1024`, (res) => {
+
+    const contentType = res.headers["content-type"];
+    const userImage = `${id}${contentType === "image/gif" ? ".gif" : contentType === "image/png"
+      ? ".png"
+      : contentType === "image/webp"
+        ? ".webp"
+        : ".jpg"
+      }`;
+  });
   const data = { id, refresh_token, created_at: new Date().toISOString() };
   const encryptedUser = encrypt(JSON.stringify(data));
   return [data, encryptedUser];

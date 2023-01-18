@@ -8,11 +8,26 @@ const oauth = new DiscordOAuth2();
 const clientId = process.env.DISCORD_CLIENT_ID || "";
 const clientSecret = process.env.DISCORD_CLIENT_SECRET || "";
 const redirectUri = process.env.DISCORD_REDIRECT_URI || "";
+let userImage: string = "";
 
 const download = (url: string, filename: string) => {
   https.get(url, (res) => {
+
+    const contentType = res.headers["content-type"];
+    userImage = `${filename}${contentType === "image/gif" ? ".gif" : contentType === "image/png"
+      ? ".png"
+      : contentType === "image/webp"
+        ? ".webp"
+        : ".jpg"
+      }`;
+      
     const fileStream = fs.createWriteStream(
-      `public/assets/images/users/${filename}.png`
+      `./public/assets/images/users/${filename}${contentType === "image/gif" ? ".gif" : contentType === "image/png"
+        ? ".png"
+        : contentType === "image/webp"
+          ? ".webp"
+          : ".jpg"
+      }`
     );
     res.pipe(fileStream);
     fileStream.on("finish", () => {
@@ -35,16 +50,14 @@ export default async function LoginCallback(req: any, res: any) {
     });
     const user = await oauth.getUser(token.access_token);
     download(
-      `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=1024`,
+      `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}?size=1024`,
       user.id
     );
-
-    const data = createData(user.id, token.refresh_token);
+    const data = createData(user.id, user.avatar, token.refresh_token);
 
     res.setHeader(
       "Set-Cookie",
-      `session=${
-        data[1]
+      `session=${data[1]
       }; path=/; SameSite=Strict; HttpOnly; expires=${new Date(
         Date.now() + 2592000000
       ).toUTCString()}`
